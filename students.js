@@ -1,73 +1,81 @@
-const students  = [
+const students = [
   {
     id: 1,
-    name: 'Mark Alonso',
+    name: "Mark Alonso",
     age: 18,
     subjects: [
       {
         id: 1,
-        name: 'Math',
-        score: 60
+        name: "Math",
+        score: 60,
       },
       {
         id: 2,
-        name: 'English',
-        score: 85
-      }
-    ]
+        name: "English",
+        score: 85,
+      },
+    ],
   },
   {
     id: 2,
-    name: 'Paul Ryan',
+    name: "Paul Ryan",
     age: 19,
     subjects: [
       {
         id: 1,
-        name: 'Math',
-        score: 78
+        name: "Math",
+        score: 78,
       },
       {
         id: 2,
-        name: 'English',
-        score: 75
-      }
-    ]
+        name: "English",
+        score: 75,
+      },
+    ],
   },
   {
     id: 3,
-    name: 'Jackie Anite',
+    name: "Jackie Anite",
     age: 21,
     subjects: [
       {
         id: 1,
-        name: 'Math',
-        score: 90
+        name: "Math",
+        score: 90,
       },
       {
         id: 2,
-        name: 'English',
-        score: 80
-      }
-    ]
+        name: "English",
+        score: 80,
+      },
+    ],
   },
   {
     id: 4,
-    name: 'Anita Allain',
+    name: "Anita Allain",
     age: 18,
     subjects: [
       {
         id: 1,
-        name: 'Math',
-        score: 71
+        name: "Math",
+        score: 71,
       },
       {
         id: 2,
-        name: 'English',
-        score: 45
-      }
-    ]
-  }
-]
+        name: "English",
+        score: 45,
+      },
+    ],
+  },
+];
+
+// ASSIGNMENT
+
+ // Display the above data on a web page. Each student information should appear on a card.
+  // Have 4 cards per row
+  // Make an appealing styling that you want.
+
+  
 
 // GOAL-  Print all students (name) who got 80+ in English
 // GOAL - Print all students who are 18 years and got 80 and above in English
@@ -82,9 +90,9 @@ const students  = [
 // - Iterate through the array using a for .. loops
 // - Use conditionals to achieve the goal.
 
-for(let student of students){
-  for(let subject of student.subjects){
-    if(subject.id === 2 && subject.score >=80 && student.age === 18){
+for (let student of students) {
+  for (let subject of student.subjects) {
+    if (subject.id === 2 && subject.score >= 80 && student.age === 18) {
       console.log(student.name);
     }
   }
