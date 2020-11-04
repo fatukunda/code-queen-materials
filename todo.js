@@ -25,15 +25,15 @@ const todos = [
   "Attend music class",
 ];
 
-const list = document.createElement("ul");
+// const list = document.createElement("ul");
 
-for (let todo of todos) {
-  const item = document.createElement("li");
-  item.innerHTML = todo;
-  list.appendChild(item);
-}
-const mainDiv = document.getElementById("main");
-mainDiv.appendChild(list);
+// for (let todo of todos) {
+//   const item = document.createElement("li");
+//   item.innerHTML = todo;
+//   list.appendChild(item);
+// }
+// const mainDiv = document.getElementById("main");
+// mainDiv.appendChild(list);
 
 // Pseudocode for adding a new todo
 
@@ -41,12 +41,12 @@ mainDiv.appendChild(list);
 // - Get the value of the input element
 // - Push the item to the array
 
-const input = document.getElementById("todo-text");
+// const input = document.getElementById("todo-text");
 
-const saveBtn = document.getElementById("save-btn");
-saveBtn.addEventListener("click", () => {
-  const inputText = input.value;
-  todos.push(inputText);
-  console.log(todos)
-});
+// const saveBtn = document.getElementById("save-btn");
+// saveBtn.addEventListener("click", () => {
+//   const inputText = input.value;
+//   todos.push(inputText);
+//   console.log(todos)
+// });
 

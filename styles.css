@@ -1,0 +1,77 @@
+body {
+  background-color: #000;
+}
+#main {
+  width: 700px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+.main-content {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todos-section {
+  background-color: #f5f5f5;
+  width: 500px;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
+}
+.todos-section h1 {
+  font-size: 30px;
+}
+.todo-item {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+.todo-item-buttons {
+  align-self: center;
+}
+.todo-item-buttons button {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  border-radius: 4px;
+}
+.completed-btn {
+  color: #fff;
+  background-color: #7ac27a;
+}
+.delete-btn {
+  color: #fff;
+  background-color: #d8534d;
+}
+.add-task-container {
+  padding-left: 3rem;
+}
+.add-task-container input {
+  height: 1.8rem;
+  margin-left: 20px;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  padding-left: 1rem;
+  width: 80%;
+}
+hr {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.save-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+.save-btn {
+  background-color: #3579b6;
+  color: #fff;
+  border-radius: 5px;
+  border: 0;
+  width: 6rem;
+  height: 2rem;
+}

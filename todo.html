@@ -4,16 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="main">
-        <h1>Todo List</h1>
-
-    </div>
-    <div>
-        <input type="text" id="todo-text">
-        <button id="save-btn">Add Todo</button>
-    </div>
+    <section class="main-content">
+        <div id="main">
+            <div class="todos-section">
+                <h1>To do:</h1>
+                <div class="todo-item">
+                    <p>Wake up</p>
+                    <div class="todo-item-buttons">
+                        <button class="completed-btn">✓</button>
+                        <button class="delete-btn">x</button>
+                    </div>
+                </div>
+                <div class="todo-item">
+                    <p>Eat breakfast</p>
+                    <div class="todo-item-buttons">
+                        <button class="completed-btn">✓</button>
+                        <button class="delete-btn">x</button>
+                    </div>
+                </div>
+                <div class="todo-item">
+                    <p>Go to work</p>
+                    <div class="todo-item-buttons">
+                        <button class="completed-btn">✓</button>
+                        <button class="delete-btn">x</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="add-task-container">
+                    <label> Task</label>
+                    <input type="text" placeholder="What do you need to do?">
+                </div>
+                <div class="save-btn-container">
+                    <button class="save-btn">Save Item</button>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="todo.js"></script>
 </body>
 </html>
