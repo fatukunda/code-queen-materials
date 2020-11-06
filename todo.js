@@ -1,52 +1,49 @@
-// Create an UL element
-// Add two List items of our daily routine
-
-// Pseudocode
-
-// - Create a ui item
-// - Create the first list item
-// - Add routine text inside our first list item
-// - Create the second list Item
-// - Add routine text inside our second list item
-
-// - Append item1 to the ui element
-// - Append item2 to the ui element
-
-// - Find the main div
-// Append the ul to the main div
-
 const todos = [
-  "Take a showers",
-  "Have breakfast",
-  "Go to work",
-  "Go to the Gym",
-  "Go dancing",
-  "Play soccer",
-  "Attend music class",
+  {
+    id: 1,
+    item: "Wake Up",
+  },
+  {
+    id: 2,
+    item: "Eat breakfast",
+  },
+  {
+    id: 3,
+    item: "Go to work",
+  },
+  {
+    id: 4,
+    item: "Go Swimming",
+  },
 ];
 
-// const list = document.createElement("ul");
+const todosContainer = document.getElementById("todos-container");
 
-// for (let todo of todos) {
-//   const item = document.createElement("li");
-//   item.innerHTML = todo;
-//   list.appendChild(item);
-// }
-// const mainDiv = document.getElementById("main");
-// mainDiv.appendChild(list);
+for (let todo of todos) {
+  const todoItem = document.createElement("div");
+  todoItem.classList.add("todo-item");
 
-// Pseudocode for adding a new todo
+  const todoTextElement = document.createElement("p");
+  todoTextElement.innerHTML = todo.item;
 
-// - Find the input element
-// - Get the value of the input element
-// - Push the item to the array
+  todoItem.appendChild(todoTextElement);
 
-// const input = document.getElementById("todo-text");
+  const todoItemButtons = document.createElement("div");
+  todoItemButtons.classList.add("todo-item-buttons");
 
-// const saveBtn = document.getElementById("save-btn");
-// saveBtn.addEventListener("click", () => {
-//   const inputText = input.value;
-//   todos.push(inputText);
-//   console.log(todos)
-// });
+  const completedBtn = document.createElement("button");
+  completedBtn.classList.add("completed-btn");
+  completedBtn.innerHTML = "✓";
 
+  todoItemButtons.appendChild(completedBtn);
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.innerHTML = "x";
+
+  todoItemButtons.appendChild(deleteBtn);
+
+  todoItem.append(todoItemButtons);
+
+  todosContainer.appendChild(todoItem);
+}
