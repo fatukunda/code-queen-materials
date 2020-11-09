@@ -1,25 +1,4 @@
-const todos = [
-  {
-    id: 1,
-    item: "Wake Up",
-    completed: true,
-  },
-  {
-    id: 2,
-    item: "Eat breakfast",
-    completed: false,
-  },
-  {
-    id: 3,
-    item: "Go to work",
-    completed: false,
-  },
-  {
-    id: 4,
-    item: "Go Swimming",
-    completed: false,
-  },
-];
+const todos = [];
 
 const todosContainer = document.getElementById("todos-container");
 
@@ -56,6 +35,14 @@ const createTodoElement = (todo) => {
   deleteBtn.classList.add("delete-btn");
   deleteBtn.innerHTML = "x";
   deleteBtn.style.cursor = "pointer";
+
+  deleteBtn.addEventListener("click", () => {
+    // We need to delete this Item from the UI
+    // We need to delete this item from the todos array.
+    todoItem.remove();
+    const todoIndex = todos.indexOf(todo);
+    todos.splice(todoIndex, 1);
+  });
 
   todoItemButtons.appendChild(deleteBtn);
 
