@@ -68,7 +68,7 @@ hr {
   justify-content: flex-end;
   margin-top: 1rem;
 }
-.save-btn {
+#save-btn {
   background-color: #3579b6;
   color: #fff;
   border-radius: 5px;

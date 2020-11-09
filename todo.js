@@ -19,7 +19,7 @@ const todos = [
 
 const todosContainer = document.getElementById("todos-container");
 
-for (let todo of todos) {
+const createTodoElement = (todo) => {
   const todoItem = document.createElement("div");
   todoItem.classList.add("todo-item");
 
@@ -46,4 +46,23 @@ for (let todo of todos) {
   todoItem.append(todoItemButtons);
 
   todosContainer.appendChild(todoItem);
+};
+
+for (let todo of todos) {
+  createTodoElement(todo);
 }
+
+const newTodoInput = document.getElementById("new-todo-input");
+
+const saveButton = document.getElementById("save-btn");
+
+saveButton.addEventListener("click", () => {
+  let newTodoInputValue = newTodoInput.value;
+  const todoItem = {
+    id: todos.length + 1,
+    item: newTodoInputValue,
+  };
+  todos.push(todoItem);
+  createTodoElement(todoItem);
+  newTodoInput.value = "";
+});
