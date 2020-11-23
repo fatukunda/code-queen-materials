@@ -1,4 +1,15 @@
-const todos = [];
+let todos = [];
+
+//
+const fetchAllTodos = async () => {
+  const response = await fetch("http://localhost:3000/todos");
+  const todos = await response.json();
+  todos.forEach((todo) => {
+    createTodoElement(todo);
+  });
+};
+
+fetchAllTodos();
 
 const todosContainer = document.getElementById("todos-container");
 
@@ -23,10 +34,18 @@ const createTodoElement = (todo) => {
   completedBtn.innerHTML = "✓";
   completedBtn.style.cursor = "pointer";
 
-  completedBtn.addEventListener("click", () => {
-    todoTextElement.style.textDecoration = "line-through";
-    todoTextElement.style.color = "blue";
-    todo.completed = true;
+  completedBtn.addEventListener("click", async () => {
+    const response = await fetch(`http://localhost:3000/todos/${todo._id}`, {
+      method: "PATCH",
+    });
+    const data = await response.json();
+    if (data.data.completed) {
+      todoTextElement.style.textDecoration = "line-through";
+      todoTextElement.style.color = "blue";
+    } else {
+      todoTextElement.style.textDecoration = "none";
+      todoTextElement.style.color = "#232323";
+    }
   });
 
   todoItemButtons.appendChild(completedBtn);
@@ -36,12 +55,12 @@ const createTodoElement = (todo) => {
   deleteBtn.innerHTML = "x";
   deleteBtn.style.cursor = "pointer";
 
-  deleteBtn.addEventListener("click", () => {
-    // We need to delete this Item from the UI
-    // We need to delete this item from the todos array.
+  deleteBtn.addEventListener("click", async () => {
+    const response = await fetch(`http://localhost:3000/todos/${todo._id}`, {
+      method: "DELETE",
+    });
+    await response.json();
     todoItem.remove();
-    const todoIndex = todos.indexOf(todo);
-    todos.splice(todoIndex, 1);
   });
 
   todoItemButtons.appendChild(deleteBtn);
@@ -51,26 +70,27 @@ const createTodoElement = (todo) => {
   todosContainer.appendChild(todoItem);
 };
 
-for (let todo of todos) {
-  createTodoElement(todo);
-}
-
 const newTodoInput = document.getElementById("new-todo-input");
 
 const saveButton = document.getElementById("save-btn");
 
-saveButton.addEventListener("click", () => {
+saveButton.addEventListener("click", async () => {
   let newTodoInputValue = newTodoInput.value;
   if (newTodoInputValue === "") {
     alert("A todo is required.");
   } else {
-    const todoItem = {
-      id: todos.length + 1,
+    const todoPayload = {
       item: newTodoInputValue,
-      completed: false,
     };
-    todos.push(todoItem);
-    createTodoElement(todoItem);
+    const response = await fetch("http://localhost:3000/todos", {
+      method: "POST",
+      body: JSON.stringify(todoPayload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const todo = await response.json();
+    createTodoElement(todo);
     newTodoInput.value = "";
   }
 });
